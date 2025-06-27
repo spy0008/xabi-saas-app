@@ -5,14 +5,14 @@ import Image from "next/image"
 
 interface CompanionListProps {
   title: string,
-  classNames: string,
+  classNames?: string,
   companions?: Companion[]
 }
 
 const CompanionList = ({ title, classNames, companions }: CompanionListProps) => {
   return (
     <article className={cn("companion-list shadow-lg shadow-gray-400", classNames)}>
-      <h2 className="font-bold text-3xl">Recent Sessions</h2>
+      <h2 className="font-bold text-3xl">{title}</h2>
 
       <Table>
         <TableHeader>
@@ -29,7 +29,7 @@ const CompanionList = ({ title, classNames, companions }: CompanionListProps) =>
                 <TableCell className="font-medium">
                   <Link href={`/companions/${id}`}>
                     <div className="flex items-center gap-2">
-                      <div className="size-[72px]flex items-center justify-center rounded-lg max-md:hidden" style={{backgroundColor:getSubjectColor(subject)}} >
+                      <div className="size-[72px]flex items-center justify-center rounded-lg max-md:hidden" style={{ backgroundColor: getSubjectColor(subject) }} >
                         <Image
                           src={`/icons/${subject}.svg`}
                           alt={subject}
@@ -51,12 +51,12 @@ const CompanionList = ({ title, classNames, companions }: CompanionListProps) =>
                   <div className="subject-badge w-fit max-md:hidden">
                     {subject}
                   </div>
-                  <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{backgroundColor:getSubjectColor(subject)}}>
+                  <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{ backgroundColor: getSubjectColor(subject) }}>
                     <Image
-                    src={`/icons/${subject}.svg`}
-                    alt={subject}
-                    width={18}
-                    height={18}
+                      src={`/icons/${subject}.svg`}
+                      alt={subject}
+                      width={18}
+                      height={18}
                     />
                   </div>
                 </TableCell>
@@ -69,11 +69,11 @@ const CompanionList = ({ title, classNames, companions }: CompanionListProps) =>
                       </span>
                     </p>
                     <Image
-                    src="/icons/clock.svg"
-                    alt="minutes"
-                    width={14}
-                    height={14}
-                    className="md:hidden"
+                      src="/icons/clock.svg"
+                      alt="minutes"
+                      width={14}
+                      height={14}
+                      className="md:hidden"
                     />
 
                   </div>
