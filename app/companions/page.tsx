@@ -28,7 +28,7 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
         {
           companions.map((companion) => (
             <CompanionCard
-              key={companion.id}
+              key={companion.name}
               {...companion}
               color={getSubjectColor(companion.subject)}
             />
